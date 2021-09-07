@@ -384,7 +384,8 @@ function Items(props){
         }
     }
     const handleChange = async (event) => {
-        history.replace('/products?categoryId='+event.target.value)
+        let arr = event.target.value.split(',')
+        history.replace('/products?categoryId='+arr[0]+"&categoryName="+arr[1])
     }
     const handleClose = () => {
         setOpen(false)
@@ -448,7 +449,7 @@ function Items(props){
                             classes={{icon:classes.icon}}
                             >
                             { categories !== undefined &&
-                                categories.map(category => <MenuItem value={category.id}>{category.categoryName}</MenuItem>)
+                                categories.map(category => <MenuItem value={category.id+","+category.categoryName}>{category.categoryName}</MenuItem>)
                             }
                         </Select>
                         </FormControl>
