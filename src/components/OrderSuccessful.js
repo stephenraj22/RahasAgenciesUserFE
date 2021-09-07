@@ -144,18 +144,11 @@ export default function SpanningTable() {
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="spanning table">
                     <TableHead>
-                    <TableRow>
-                        <TableCell align="center"  style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={3}>
-                            Details
-                        </TableCell>
-                        <TableCell align="center"  style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={3}>Price</TableCell>
-                    </TableRow>
+                    
                     <TableRow>
                         <TableCell style={{ fontWeight: 750,fontStyle:'normal'}}>Product</TableCell>
                         <TableCell align="right" style={{ fontWeight: 750,fontStyle:'normal'}}>Pkt count</TableCell>
-                        <TableCell align="right" style={{ fontWeight: 750,fontStyle:'normal'}}>Carton count</TableCell>
                         <TableCell align="right" style={{ fontWeight: 750,fontStyle:'normal'}}>Price per pkt</TableCell>
-                        <TableCell align="right" style={{ fontWeight: 750,fontStyle:'normal'}}>Price per carton</TableCell>
                         <TableCell align="right" style={{ fontWeight: 750,fontStyle:'normal'}}>Sum</TableCell>
                     </TableRow>
                     </TableHead>
@@ -164,25 +157,22 @@ export default function SpanningTable() {
                         <TableRow hover key={row.desc}>
                         <TableCell>{row.productDetail.productName}</TableCell>
                         <TableCell align="right">{row.pktCount}</TableCell>
-                        <TableCell align="right">{row.cartonCount}</TableCell>
                         <TableCell align="right">{row.productDetail.pricePkt}</TableCell>
-                        <TableCell align="right">{row.productDetail.priceCarton}</TableCell>
-                        <TableCell align="right">{(Number(row.productDetail.pricePkt)*Number(row.pktCount)) +
-                        (Number(row.productDetail.priceCarton)*Number(row.cartonCount))}</TableCell>
+                        <TableCell align="right">{(Number(row.productDetail.pricePkt)*Number(row.pktCount))}</TableCell>
                         </TableRow>
                     ))}
 
                     <TableRow>
-                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={4} align="right">Total</TableCell>
+                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={1} align="right">Total</TableCell>
                         <TableCell align="right" colSpan={3}>{Number(order.data.placeOrder.order.total)}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={4} align="right">Discount</TableCell>
-                        <TableCell colSpan={1} align="right">{order.data.placeOrder.order.discountPercent}%</TableCell>
+                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={1} align="right">Discount</TableCell>
+                        <TableCell colSpan={2} align="right">{order.data.placeOrder.order.discountPercent}%</TableCell>
                         <TableCell align="right" colSpan={1} >{(Number(order.data.placeOrder.order.total)-((Number(order.data.placeOrder.order.discountPercent)/100)*Number(order.data.placeOrder.order.total)))}</TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={4} align="right">Final Total</TableCell>
+                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={1} align="right">Final Total</TableCell>
                         <TableCell align="right" colSpan={3}>{Number(order.data.placeOrder.order.total)-(Number(order.data.placeOrder.order.total)-((Number(order.data.placeOrder.order.discountPercent)/100)*Number(order.data.placeOrder.order.total)))}</TableCell>
                     </TableRow>
                     </TableBody>

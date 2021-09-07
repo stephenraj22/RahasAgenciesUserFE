@@ -2,16 +2,11 @@ import {React,useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const useStyles = makeStyles((theme)=>({
   root: {
-    backgroundColor:"#d48eae"
+    backgroundColor:"#1f1f1f"
   },
   typo1:{
     [theme.breakpoints.up('xs')]:{
@@ -34,17 +29,11 @@ export default function SimpleBottomNavigation(props) {
     <div >
         <BottomNavigation
           className={classes.root}
-          style={{width:'100%',height:'6rem',position: 'fixed',left: 0,bottom: 0}}
+          style={{width:'100%',height:'4rem',position: 'fixed',left: 0,bottom: 0}}
         >
             <div>
                 <Typography  variant="h6" align='center' style={{color:'white'}}  noWrap>
-                         Total:{props.price}
-                </Typography>
-                <Typography  variant="h6" align='center' style={{color:'white'}}  noWrap>
-                         Discount:{props.price*(50/100)}
-                </Typography>
-                <Typography  variant="h6" align='center'  style={{color:'white'}} noWrap>
-                         Final Price:{props.price - props.price*(Number(process.env.REACT_APP_OVERALL_DISCOUNT)/100)}
+                        Grand Total:{props.price} Rs
                 </Typography>
             </div>
         </BottomNavigation>

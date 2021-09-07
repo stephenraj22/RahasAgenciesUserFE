@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     body:{
     },
     box:{
-        width: '20rem', height: '9rem',
+        width: '20rem', height: '11rem',
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
@@ -99,6 +99,32 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             marginTop:"50px"
         }
+    },
+    textSize1_1:{
+        [theme.breakpoints.up('xs')]:{
+            //textDecoration:"line-through",
+            textAlign:'center',
+            fontSize:16,
+            fontColor:'green'
+        },
+       
+    },
+    textSize2:{
+        [theme.breakpoints.up('xs')]:{
+            textAlign:'center',
+            fontSize:18,
+            fontColor:'green'
+        },
+       
+    },
+    textSize3:{
+        [theme.breakpoints.up('xs')]:{
+            textDecoration:"line-through",
+            textAlign:'center',
+            fontSize:18,
+            fontColor:'green'
+        },
+       
     },
     formControl: {
         marginTop:"5%",
@@ -207,10 +233,11 @@ function HomePage (props) {
     }
     const handleChange = async (event) => {
         await localStorage.setItem('cart',JSON.stringify(cartProduct))
-        history.replace('/products?categoryId='+event.target.value)
+        let n = event.target.value.split(",")
+        history.replace('/products?categoryId='+n[0]+"&categoryName="+n[1])
     }
     return(
-        <div style={{backgroundColor:"pink"}}>
+        <div >
             <Dialog
                 open={openFlag}
                 aria-labelledby="responsive-dialog-title"
@@ -246,7 +273,7 @@ function HomePage (props) {
                             className={classes.selectBox}
                             >
                             { categories !== null &&
-                                categories.map(category => <MenuItem value={category.id}>{category.categoryName}</MenuItem>)
+                                categories.map(category => <MenuItem value={category.id+","+category.categoryName}>{category.categoryName}</MenuItem>)
                             }
                         </Select>
                         </FormControl>
@@ -272,7 +299,7 @@ function HomePage (props) {
                                cartProduct[item][index+2] && <Grid xs={12} sm={3}>
 
                                <Box
-                                   boxShadow={5}
+                                   boxShadow={15}
                                    bgcolor="background.paper"
                                    m={1}
                                    p={1}
@@ -283,23 +310,32 @@ function HomePage (props) {
                                    <Typography   className={classes.textSize} >
                                    {cartProduct[item][4].productName}
                                    </Typography>
-                                   <Typography  variant="subtitle2"  className={classes.textSize1} align='left' style={{color:'green'}} noWrap>
-                                       Size : {cartProduct[item][4].size}
-                                   </Typography>
+                                   <Typography  className={classes.textSize1_1} align='left'  noWrap>
+                                                {cartProduct[item][4].size} 
+                                    </Typography>
                                    {
-                                       index === 0 ? <Typography  variant="subtitle2"  className={classes.textSize1} align='left' style={{color:'green'}} noWrap>
-                                                         Items per box/pkt: {cartProduct[item][4].perPkt}
+                                       index === 0 ? <Typography  variant="subtitle2"  className={classes.textSize1_1} align='left' style={{color:'green'}} noWrap>
+                                                         Type : {cartProduct[item][4].type}
                                                      </Typography> :
                                                      <Typography  variant="subtitle2"  className={classes.textSize1} align='left' style={{color:'green'}} noWrap>
-                                                        Items per carton: {cartProduct[item][4].perCarton}
                                                     </Typography>
                                    }
                                    {
-                                       index === 0 ? <Typography  variant="subtitle2"  className={classes.textSize1} align='left' style={{color:'green'}} noWrap>
-                                                        Price per box/pkt: {cartProduct[item][4].pricePkt} Rs
-                                                    </Typography> :
+                                       index === 0 ? <div align='center'><table>
+                                                        <tr>
+                                                            <td>
+                                                            <Typography  variant="subtitle2"  className={classes.textSize3} align='left' style={{color:'grey'}} noWrap>
+                                                                {cartProduct[item][4].oldPricePkt} Rs
+                                                            </Typography>
+                                                            </td>
+                                                            <td>
+                                                            <Typography  variant="subtitle2"  className={classes.textSize2} align='left' style={{color:'red'}} noWrap>
+                                                                {cartProduct[item][4].pricePkt} Rs
+                                                            </Typography>
+                                                            </td>
+                                                        </tr>
+                                                    </table> </div>:
                                                     <Typography  variant="subtitle2"  className={classes.textSize1} align='left' style={{color:'green'}} noWrap>
-                                                        Price per carton: {cartProduct[item][4].priceCarton} Rs
                                                     </Typography>
                                    }
                                    
@@ -308,7 +344,6 @@ function HomePage (props) {
                                                          Total: {cartProduct[item][4].pricePkt*cartProduct[item][0]}
                                                         </Typography> :
                                                         <Typography  variant="h6"   align='center' style={{color:'green'}} noWrap>
-                                                            Total:  {cartProduct[item][4].priceCarton*cartProduct[item][1]}
                                                         </Typography>
                                    }
                                   {
@@ -316,6 +351,15 @@ function HomePage (props) {
                                                     <IndeterminateCheckBoxRoundedIcon className={classes.minusBtn} color="primary" onClick={()=>{
                                                                 let state = cartProduct
                                                                 state[item][0] -= 1
+                                                                if(state[item][0]==0){
+                                                                    let openObj = dialogOpen
+                                                                    openObj.item = item
+                                                                    openObj.index = index
+                                                                    setDialogOpen(openObj)
+                                                                    setOpenFlag(true)
+                                                                    return
+
+                                                                }
                                                                 setCartProduct(state)
                                                                 setFlag(prevState => !prevState)
                                                     }}/>

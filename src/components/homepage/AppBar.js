@@ -98,9 +98,9 @@ export default function PrimarySearchAppBar(props) {
           >
           {
             props.page === 'home' ? <span></span> : props.page == 'buy'? <ArrowBackRoundedIcon onClick={
-              () => history.replace('/cart')
+              () => {history.replace('/cart')}
             } /> :<ArrowBackRoundedIcon onClick={
-              () => history.replace('/')
+              () => {history.replace('/')}
             }/>
           }
           </IconButton>

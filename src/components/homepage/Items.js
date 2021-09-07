@@ -122,25 +122,54 @@ const useStyles = makeStyles((theme) => ({
     },
     textDiv:{
         [theme.breakpoints.up('xs')]:{
-            color:'white',textAlign:"center",marginLeft:"130px",fontSize:"25px", marginTop:"28px",
-            fontWeight:600,fontFamily:"serif"
+            color:'white',textAlign:"center",marginLeft:"130px",fontSize:"25px", marginTop:"10px",
+            fontWeight:600,fontFamily:"serif",height:"9px"
             
         },
         [theme.breakpoints.up('sm')]:{
-            color:'white',textAlign:"left",fontSize:"50px",marginTop:"10px"
+            color:'white',textAlign:"center",fontSize:"50px",marginTop:"10px"
         }
     },
     textDiv1:{
         [theme.breakpoints.up('xs')]:{
-            color:'white',textAlign:"center"
+            position:"relative",color:'white',textAlign:"center",zIndex:200,marginLeft: 'auto',
+            marginRight: 'auto',width:"95%"
             
         },
-        [theme.breakpoints.up('sm')]:{
-            color:'white',textAlign:"center"
+        [theme.breakpoints.up('md')]:{
+            position:"relative",width:"50%",color:'white',zIndex:200,marginLeft: 'auto',
+            marginRight: 'auto'
         }
     },
+    textDiv2:{
+        [theme.breakpoints.up('xs')]:{
+            color:'white',textAlign:"center",marginLeft:"130px",fontSize:"17px",fontFamily:"serif",height:"5px"
+        },
+        [theme.breakpoints.up('md')]:{
+            color:'white',textAlign:"center",fontSize:"20px",fontFamily:"serif",height:"5px"
+        }
+    },
+    captionDiv:{
+        [theme.breakpoints.up('xs')]:{
+            position:"relative",zIndex:200,marginLeft:"auto",marginRight:"auto",width:"95%"
+        },
+        [theme.breakpoints.up('md')]:{
+            position:"relative",zIndex:200,width:"95%",marginLeft:"auto",marginRight:"auto"
+        }
+
+    },
+    selectBoxStyle:{
+        textAlign:"center"
+    },
     formControl: {
-        marginTop:"5%",
+        [theme.breakpoints.up('xs')]:{
+            marginTop:"5%",
+        },
+        [theme.breakpoints.up('md')]:{
+            marginTop:"2.5%",
+            marginLeft:"auto",
+            marginRight:"auto"
+        },
         minWidth: 190,
     },
     relativePosition:{
@@ -151,7 +180,7 @@ const useStyles = makeStyles((theme) => ({
             width:"90%",marginLeft:"auto",marginRight:"auto"
         },
         [theme.breakpoints.up('sm')]:{
-            width:"600px"
+            width:"600px",marginLeft:"auto",marginRight:"auto"
         }
     },
     icon: {
@@ -164,8 +193,11 @@ const useStyles = makeStyles((theme) => ({
             height:"150px",
             float:"left",
         },
-        [theme.breakpoints.up('sm')]:{
-            
+        [theme.breakpoints.up('md')]:{
+            marginLeft:"10px",
+            width:"150px",
+            height:"125px",
+            float:"left",
         }
     },
     cssLabel: {
@@ -203,7 +235,7 @@ const useStyles = makeStyles((theme) => ({
             position:"absolute",zIndex:400,textAlign:"center"
         },
         [theme.breakpoints.up('sm')]:{
-            position:"relative",zIndex:400,textAlign:"center"
+            position:"absolute",zIndex:400,textAlign:"center",marginLeft:"50px"
         }
     },
     isDesktop:{
@@ -212,7 +244,14 @@ const useStyles = makeStyles((theme) => ({
             marginLeft:"auto",
             marginRight:"auto",
             width:"50%"
+        },
+        [theme.breakpoints.up('md')]:{
+            display:"block",
+            marginLeft:"auto",
+            marginRight:"auto",
+            width:"50%"
         }
+
     },captchaDiv:{
         display:"none",
         /* [theme.breakpoints.up('xs')]: {
@@ -383,6 +422,9 @@ function Items(props){
             <div className={classes.typoDiv}>
                 <p className={classes.textDiv} >
                    RAHAS AGENCIES
+                </p>
+                <p className={classes.textDiv2}>Dealer: Standard Fireworks <br/>
+                   GSTIN:  33AACCS1480M1ZA
                 </p>  
             </div> 
             </div>    
@@ -390,7 +432,7 @@ function Items(props){
             <Table style={{position:"relative",zIndex:200}} >
                 <TableRow >
 
-                    <td style={{textAlign:'center'}}>
+                    <td className={classes.selectBoxStyle}>
                     <FormControl variant="filled" className={classes.formControl}>
                         <InputLabel id="demo-simple-select-label" htmlFor="filled-age-native-simple" style={{color:"#FFFFFF"}}>Select Category</InputLabel>
                             <Select
@@ -415,12 +457,10 @@ function Items(props){
                 
             </Table>
             </div>
-            <div style={{position:"relative",zIndex:200,width:"90%",marginLeft:"auto",marginRight:"auto"}}>
-            <Typography className={classes.textDiv1} variant="h6"  style={{}} >
+            <Typography className={classes.textDiv1} variant="h6"  >
                    Buy crackers of highest quality from supreme industries of cracker's city and make your occations safe and special !
             </Typography>
-            </div>
-            <div style={{position:"relative",zIndex:200,marginTop:"30px"}} className={classes.contactDiv}>
+            <div style={{position:"relative",zIndex:200,marginTop:"20px"}} className={classes.contactDiv}>
             <Typography  variant="h5"  style={{align:"left",color:"white"}} >
                     Contact us
             </Typography>

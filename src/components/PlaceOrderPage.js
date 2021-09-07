@@ -49,21 +49,16 @@ mutation(
           total
           discountPercent
           colony
-          time
           orderList{
             id
             pktCount
-            cartonCount
             productDetail{
               productName
-              perPkt
-              perCarton
               pricePkt
-              priceCarton
             }
           }
         }
-    }
+      }
 }
 `
 const useStyles = makeStyles((theme) => ({
@@ -237,16 +232,14 @@ function PlaceOrderPage (props) {
         });
         setRecaptcha(recaptcha)
         let productArray = []
-        let obj = {id:'',pktCount:0,cartonCount:0}
+        let obj = {id:'',pktCount:0}
         if(cartProduct){
             Object.keys(cartProduct).forEach(item => {
                 obj.id = item
                 if(cartProduct[item][2])
                     obj.pktCount = cartProduct[item][0]
-                if(cartProduct[item][3])
-                    obj.cartonCount = cartProduct[item][1]
                 productArray.push(obj)
-                obj = {id:'',pktCount:0,cartonCount:0}
+                obj = {id:'',pktCount:0}
             })
             
         }
