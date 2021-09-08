@@ -466,7 +466,13 @@ function Items(props){
                     Contact us
             </Typography>
             <Typography  variant="body1"  style={{align:"",color:"white",marginTop:"5px"}} >
-                    1/384 M2 Gopal Nagar, Reserve Line, Sivakasi 626124. +919789175972.
+                    Old No. 18-D New No. 38, Sattur Road, Sivakasi - 626123, 
+                    <li>
+                    +91 9944991567
+                    </li> 
+                    <li>
+                    +91 7200195070
+                    </li>
             </Typography>
             <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
                     For queries regarding orders, submit your contact details, we will clarify.
