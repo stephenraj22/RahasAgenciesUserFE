@@ -133,6 +133,7 @@ function PlaceOrderPage (props) {
     const code = useRef('')
     const [message,setMessage] = useState('')
     const [message1,setMessage1] = useState('')
+    const [price, setPrice] = useState(0)
     const [productList,setProductList] = useState([])
     const [confirmationResult,setConfirmationResult] = useState();
     const [enableFlag,setEnableFlag] = useState(true)
@@ -232,17 +233,21 @@ function PlaceOrderPage (props) {
         });
         setRecaptcha(recaptcha)
         let productArray = []
+        let total = 0
         let obj = {id:'',pktCount:0}
         if(cartProduct){
             Object.keys(cartProduct).forEach(item => {
                 obj.id = item
-                if(cartProduct[item][2])
+                if(cartProduct[item][2]){
                     obj.pktCount = cartProduct[item][0]
+                    total += cartProduct[item][0] * cartProduct[item][4].pricePkt
+                }
                 productArray.push(obj)
                 obj = {id:'',pktCount:0}
             })
             
         }
+        setPrice(total)
         setProductList(productArray)
         console.log(productArray)
     },[cartProduct])
@@ -275,6 +280,11 @@ function PlaceOrderPage (props) {
     const sendotp = async () => {
         if(countFlag){
             return;
+        }
+        if(price<5000){
+            setMessage('Order amt is less than 5000Rs!')
+            setOpen(true)
+            return
         }
         await setCountFlag(true)
         await setMessage1("Processing data....")

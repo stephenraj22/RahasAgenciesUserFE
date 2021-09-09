@@ -187,6 +187,7 @@ function HomePage (props) {
     const [iter,setIter] = useState([0,1])
     const [flag,setFlag] = useState(false);
     const [openFlag,setOpenFlag] = useState(false)
+    const [openFlag1,setOpenFlag1] = useState(false)
     const [price,setPrice] = useState(0)
     const [count,setCount]  = useState(0)
     const [dialogOpen,setDialogOpen] = useState({item:"",index:0})
@@ -213,7 +214,9 @@ function HomePage (props) {
             localStorage.setItem('cart',JSON.stringify(cartProduct))
         }
     },[flag])
-    
+    const handleClose3 = () => {
+        setOpenFlag1(false)
+    }
     const handleClose1 = () => {
         setOpenFlag(false)
     };
@@ -238,6 +241,22 @@ function HomePage (props) {
     }
     return(
         <div >
+            <Dialog
+                open={openFlag1}
+                aria-labelledby="responsive-dialog-title"
+                >
+                <DialogTitle id="responsive-dialog-title">{"Order response"}</DialogTitle>
+                <DialogContent>
+                <DialogContentText>
+                    Accepting order only for 5000 RS and more
+                </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleClose3} color="primary" autoFocus>
+                    close
+                </Button>
+                </DialogActions>
+            </Dialog>
             <Dialog
                 open={openFlag}
                 aria-labelledby="responsive-dialog-title"
@@ -280,6 +299,10 @@ function HomePage (props) {
                     </td>
                     {count!=0 && <td style={{textAlign:'left'}}>
                         <Button variant="contained" className={classes.buyBtn}  style={{backgroundColor:"#ff8200",color:"white"}} onClick={()=>{ 
+                            if(price<5000){
+                                setOpenFlag1(true)
+                                return
+                            }
                             localStorage.setItem('cart',JSON.stringify(cartProduct))
                             history.replace('/buy')
                         }} color="primary">
