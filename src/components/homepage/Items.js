@@ -459,7 +459,7 @@ function Items(props){
             </Table>
             </div>
             <Typography className={classes.textDiv1} variant="h6"  >
-                   Buy crackers of highest quality from supreme industries of cracker's city and make your occasions safe and special !
+                   Buy crackers of highest quality from supreme industries of crackers city and make your occasions safe and special !
             </Typography>
             <div style={{position:"relative",zIndex:200,marginTop:"20px"}} className={classes.contactDiv}>
             <Typography  variant="h5"  style={{align:"left",color:"white"}} >
