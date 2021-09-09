@@ -20,7 +20,7 @@ const apolloCache = new InMemoryCache()
   },
 }*/
 const uploadLink = createUploadLink({
-  uri: 'api/', 
+  uri: process.env.REACT_APP_BACKEND_URL, 
   headers: {
     "keep-alive": "true"
   }
