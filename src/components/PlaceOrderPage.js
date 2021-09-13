@@ -305,7 +305,7 @@ function PlaceOrderPage (props) {
                         .auth()
                         .signInWithPhoneNumber(phoneNo.current.value, recaptcha)
                         .then(async (e) => {
-                            await setMessage1("OTP sent")
+                            await setMessage1("Wait otp is on the way!")
                             await setOpen1(true)
                             await setConfirmationResult(e)
                             await setEnableFlag(false)
@@ -350,7 +350,7 @@ function PlaceOrderPage (props) {
                 <DialogTitle id="responsive-dialog-title">{"Order response"}</DialogTitle>
                 <DialogContent>
                 <DialogContentText>
-                    Order Placed
+                    Order Placed, We will call you for confirmation!
                 </DialogContentText>
                 </DialogContent>
                 <DialogActions>
