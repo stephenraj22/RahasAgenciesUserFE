@@ -166,15 +166,6 @@ export default function SpanningTable() {
                         <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={1} align="right">Total</TableCell>
                         <TableCell align="right" colSpan={3}>{Number(order.data.placeOrder.order.total)}</TableCell>
                     </TableRow>
-                    <TableRow>
-                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={1} align="right">Discount</TableCell>
-                        <TableCell colSpan={2} align="right">{order.data.placeOrder.order.discountPercent}%</TableCell>
-                        <TableCell align="right" colSpan={1} >{(Number(order.data.placeOrder.order.total)-((Number(order.data.placeOrder.order.discountPercent)/100)*Number(order.data.placeOrder.order.total)))}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ fontWeight: 750,fontStyle:'normal'}} colSpan={1} align="right">Final Total</TableCell>
-                        <TableCell align="right" colSpan={3}>{Number(order.data.placeOrder.order.total)-(Number(order.data.placeOrder.order.total)-((Number(order.data.placeOrder.order.discountPercent)/100)*Number(order.data.placeOrder.order.total)))}</TableCell>
-                    </TableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
