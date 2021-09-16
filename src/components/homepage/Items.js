@@ -469,10 +469,10 @@ function Items(props){
             <Typography  variant="body1"  style={{align:"",color:"white",marginTop:"5px"}} >
                     Old No. 18-D New No. 38, Sattur Road, Sivakasi - 626123, 
                     <li>
-                    +91 9944991567 <a href="tel:+919944991567" style={{marginLeft:"4px"}}><CallIcon  style={{position:"fixed",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/></a>
+                    +91 9944991567 <a href="tel:+919944991567" style={{marginLeft:"4px"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/></a>
                     </li> 
                     <li>
-                    +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px"}}><CallIcon  style={{position:"fixed",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/></a>
+                    +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/></a>
                     </li>
             </Typography>
             <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
