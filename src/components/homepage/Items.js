@@ -476,6 +476,12 @@ function Items(props){
                     </li>
             </Typography>
             <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
+                    How to make orders? watch here <a href="https://www.youtube.com/watch?v=IgbveyYvLe0" style={{color: "yellow",backgroundColor: "transparent",textDecoration: "underline"}}>Click here</a> 
+            </Typography>
+            <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
+                Accepting orders of 5000 RS and above, no immediate payments required.
+            </Typography>
+            <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
                     For queries regarding orders, submit your contact details, we will clarify.
             </Typography>
             <div  className={classes.captchaDiv} id="recaptcha-container"></div>
