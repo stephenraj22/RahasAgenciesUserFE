@@ -469,14 +469,14 @@ function Items(props){
             <Typography  variant="body1"  style={{align:"",color:"white",marginTop:"5px"}} >
                     Old No. 18-D New No. 38, Sattur Road, Sivakasi - 626123, 
                     <li>
-                    +91 9944991567 <a href="tel:+919944991567" style={{marginLeft:"4px"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/></a>
+                    +91 9944991567 <a href="tel:+919944991567" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a> 
                     </li> 
                     <li>
-                    +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/></a>
+                    +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a>
                     </li>
             </Typography>
             <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
-                    How to make orders? watch here <a href="https://www.youtube.com/watch?v=IgbveyYvLe0" style={{color: "yellow",backgroundColor: "transparent",textDecoration: "underline"}}>Click here</a> 
+                    How to make orders? watch here <a href="https://www.youtube.com/watch?v=IgbveyYvLe0" style={{color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}>Click here</a> 
             </Typography>
             <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
                 Accepting orders of 5000 RS and above, no immediate payments required.
