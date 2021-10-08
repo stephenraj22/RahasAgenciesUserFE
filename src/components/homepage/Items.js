@@ -63,6 +63,11 @@ const addCustomerMessage = gql`
         addCustomerMessage(name:$name,phoneNo:$phoneNo,message:$message)
     }
 `
+const updateCount = gql`
+    mutation($type:String!){
+        updateCount(type:$type)
+    }
+`
 const useStyles = makeStyles((theme) => ({
     box:{
         [theme.breakpoints.up('xs')]:{
@@ -270,6 +275,8 @@ function Items(props){
     const [clickFlag,setClickFlag] = useState(false)
     const [enableFlag,setEnableFlag] = useState(true)
     const [countFlag,setCountFlag] = useState(false)
+    const [countFlag1,setCountFlag1]= useState(false)
+    const [countFlag2,setCountFlag2]= useState(false)
     const [recaptcha,setRecaptcha] = useState()
     const [confirmationResult,setConfirmationResult] = useState();
     const [popupmessage,setPopupMessage] = useState('')
@@ -308,6 +315,32 @@ function Items(props){
         }
         
     },[props.productsForHome.productsForHome])
+    const clickCounterUpdate1 = async () => {
+        if(countFlag1){
+            return
+        }
+        else{
+            const result = await props.updateCount({
+                variables:{
+                    type:"1"
+                }
+            })
+            setCountFlag1(true)
+        }
+    }
+    const clickCounterUpdate2 = async ()=>{
+        if(countFlag2){
+            return
+        }
+        else{
+            const result = await props.updateCount({
+                variables:{
+                    type:"2"
+                }
+            })
+            setCountFlag2(true)  
+        }
+    }
     const handleSubmit = async () => {
         console.log("called")
         if (code.current.value === '') {
@@ -469,10 +502,10 @@ function Items(props){
             <Typography  variant="body1"  style={{align:"",color:"white",marginTop:"5px"}} >
                     Old No. 18-D New No. 38, Sattur Road, Sivakasi - 626123, 
                     <li>
-                    +91 9944991567 <a href="tel:+919944991567" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a> 
+                    +91 9944991567 <a href="tel:+919944991567" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}} onClick={clickCounterUpdate1}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a> 
                     </li> 
                     <li>
-                    +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a>
+                    +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}} onClick={clickCounterUpdate2}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a>
                     </li>
             </Typography>
             <br/>
@@ -572,4 +605,5 @@ function Items(props){
 export default compose(
     graphql(productsForHome,{name:'productsForHome'}),
     graphql(addCustomerMessage,{name:'addCustomerMessage'}),
+    graphql(updateCount,{name:'updateCount'})
 )(Items);
