@@ -475,6 +475,8 @@ function Items(props){
                     +91 7200195070 <a href="tel:+917200195070" style={{marginLeft:"4px",color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}><CallIcon  style={{position:"relative",zIndex:"200",width:"20px",height:"20px",backgroundColor:"#fb641b",color:"white"}}/> click here to call</a>
                     </li>
             </Typography>
+            <br/>
+            <br/>
             <Typography  variant="subtitle2"  style={{align:"left",color:"white"}} >
                     How to make orders? watch here <a href="https://www.youtube.com/watch?v=IgbveyYvLe0" style={{color: "#fb641b",backgroundColor: "transparent",textDecoration: "underline"}}>Click here</a> 
             </Typography>
